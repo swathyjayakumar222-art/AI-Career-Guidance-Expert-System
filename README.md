@@ -10,15 +10,15 @@ The system uses a knowledge base of IF–THEN rules and a forward-chaining infer
 
 ### Home Page
 
-![CareerAI Home Page](screenshots/home.png)
+![CareerAI Home Page](./screenshots/home.png)
 
 ### Career Assessment
 
-![Career Assessment](screenshots/assessment.png)
+![Career Assessment](./screenshots/assessment.png)
 
 ### AI Career Analysis
 
-![Career Results](screenshots/results.png)
+![Career Results](./screenshots/results.png)
 
 ---
 
