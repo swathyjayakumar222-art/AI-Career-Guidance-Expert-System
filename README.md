@@ -18,7 +18,7 @@ The system uses a knowledge base of IF–THEN rules and a forward-chaining infer
 
 ### AI Career Analysis
 
-![Career Results](./screenshots/results.png)
+![Career Results](./screenshots/result.png)
 
 ---
 
