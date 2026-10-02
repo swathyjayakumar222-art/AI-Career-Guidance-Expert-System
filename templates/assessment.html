@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Career Assessment | CareerAI</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+
+        <div class="logo">
+            Career<span>AI</span>
+        </div>
+
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/how-it-works">How It Works</a>
+            <a href="/careers">Careers</a>
+        </div>
+
+    </nav>
+
+
+    <!-- ASSESSMENT -->
+    <section class="assessment">
+
+        <div class="assessment-header">
+
+            <p class="tagline">
+                AI CAREER ASSESSMENT
+            </p>
+
+            <h1>
+                Discover Your
+                <span>Career Path</span>
+            </h1>
+
+            <p>
+                Answer the questions honestly. Your responses will
+                be analyzed by our rule-based expert system using
+                forward-chaining reasoning.
+            </p>
+
+        </div>
+
+
+        <!-- FORM -->
+        <form action="/result" method="POST">
+
+
+            <!-- QUESTION 1 -->
+            <div class="question-card">
+
+                <div class="question-number">
+                    01
+                </div>
+
+                <h2>
+                    What is your current education level?
+                </h2>
+
+                <label>
+                    <input type="radio"
+                           name="education"
+                           value="school_9_10"
+                           required>
+                    Class 9–10
+                </label>
+
+                <label>
+                    <input type="radio"
+                           name="education"
+                           value="school_11_12">
+                    Class 11–12
+                </label>
+
+                <label>
+                    <input type="radio"
+                           name="education"
+                           value="undergraduate">
+                    Undergraduate
+                </label>
+
+                <label>
+                    <input type="radio"
+                           name="education"
+                           value="postgraduate">
+                    Postgraduate
+                </label>
+
+            </div>
+
+
+            <!-- QUESTION 2 -->
+            <div class="question-card">
+
+                <div class="question-number">
+                    02
+                </div>
+
+                <h2>
+                    How comfortable are you with programming?
+                </h2>
+
+                <label>
+                    <input type="radio"
+                           name="programming"
+                           value="beginner"
+                           required>
+                    Beginner
+                </label>
+
+                <label>
+                    <input type="radio"
+                           name="programming"
+                           value="intermediate">
+                    Intermediate
+                </label>
+
+                <label>
+                    <input type="radio"
+                           name="programming"
+                           value="advanced">
+                    Advanced
+                </label>
+
+                <label>
+                    <input type="radio"
+                           name="programming"
+                           value="none">
+                    Haven't learned programming yet
+                </label>
+
+            </div>
+
+
+            <!-- QUESTION 3 -->
+            <div class="question-card">
+
+                <div class="question-number">
+                    03
+                </div>
+
+                <h2>
+                    How comfortable are you with mathematics?
+                </h2>
+
+                <label>
+                    <input type="radio"
+                           name="mathematics"
+                           value="high"
+                           required>
+                    Very comfortable
+                </label>
+
+                <label>
+                    <input type="radio"
+                           name="mathematics"
+                           value="medium">
+                    Comfortable
+                </label>
+
+                <label>
+                    <input type="radio"
+                           name="mathematics"
+                           value="average">
+                    Average
+                </label>
+
+                <label>
+                    <input type="radio"
+                           name="mathematics"
+                           value="low">
+                    Not very comfortable
+                </label>
+
+            </div>
+
+
+            <!-- QUESTION 4 -->
+            <div class="question-card">
+
+                <div class="question-number">
+                    04
+                </div>
+
+                <h2>
+                    How do you feel about problem solving?
+                </h2>
+
+                <label>
+                    <input type="radio"
+                           name="problem_solving"
+                           value="high"
+                           required>
+                    I love solving problems
+                </label>
+
+                <label>
+                    <input type="radio"
+                           name="problem_solving"
+                           value="medium">
+                    I like solving problems
+                </label>
+
+                <label>
+                    <input type="radio"
+                           name="problem_solving"
+                           value="sometimes">
+                    Sometimes
+                </label>
+
+                <label>
+                    <input type="radio"
+                           name="problem_solving"
+                           value="low">
+                    Not really
+                </label>
+
+            </div>
+
+
+            <!-- QUESTION 5 -->
+            <div class="question-card">
+
+                <div class="question-number">
+                    05
+                </div>
+
+                <h2>
+                    How interested are you in technology?
+                </h2>
+
+                <label>
+                    <input type="radio"
+                           name="technology"
+                           value="high"
+                           required>
+                    Very interested
+                </label>
+
+                <label>
+                    <input type="radio"
+                           name="technology"
+                           value="medium">
+                    Interested
+                </label>
+
+                <label>
+                    <input type="radio"
+                           name="technology"
+                           value="low">
+                    Somewhat interested
+                </label>
+
+                <label>
+                    <input type="radio"
+                           name="technology"
+                           value="none">
+                    Not very interested
+                </label>
+
+            </div>
+
+
+            <!-- QUESTION 6 -->
+            <div class="question-card">
+
+                <div class="question-number">
+                    06
+                </div>
+
+                <h2>
+                    How interesting do you find working with data?
+                </h2>
+
+                <label>
+                    <input type="radio"
+                           name="data_interest"
+                           value="high"
+                           required>
+                    Very interesting
+                </label>
+
+                <label>
+                    <input type="radio"
+                           name="data_interest"
+                           value="medium">
+                    Interesting
+                </label>
+
+                <label>
+                    <input type="radio"
+                           name="data_interest"
+                           value="neutral">
+                    Neutral
+                </label>
+
+                <label>
+                    <input type="radio"
+                           name="data_interest"
+                           value="low">
+                    Not interesting
+                </label>
+
+            </div>
+
+
+            <!-- QUESTION 7 -->
+            <div class="question-card">
+
+                <div class="question-number">
+                    07
+                </div>
+
+                <h2>
+                    How creative do you consider yourself?
+                </h2>
+
+                <label>
+                    <input type="radio"
+                           name="creativity"
+                           value="high"
+                           required>
+                    Very creative
+                </label>
+
+                <label>
+                    <input type="radio"
+                           name="creativity"
+                           value="medium">
+                    Somewhat creative
+                </label>
+
+                <label>
+                    <input type="radio"
+                           name="creativity"
+                           value="low">
+                    A little
+                </label>
+
+                <label>
+                    <input type="radio"
+                           name="creativity"
+                           value="none">
+                    Not at all
+                </label>
+
+            </div>
+
+
+            <!-- QUESTION 8 -->
+            <div class="question-card">
+
+                <div class="question-number">
+                    08
+                </div>
+
+                <h2>
+                    How interested are you in cybersecurity?
+                </h2>
+
+                <label>
+                    <input type="radio"
+                           name="security_interest"
+                           value="high"
+                           required>
+                    Very interested
+                </label>
+
+                <label>
+                    <input type="radio"
+                           name="security_interest"
+                           value="medium">
+                    Interested
+                </label>
+
+                <label>
+                    <input type="radio"
+                           name="security_interest"
+                           value="low">
+                    Somewhat interested
+                </label>
+
+                <label>
+                    <input type="radio"
+                           name="security_interest"
+                           value="none">
+                    Not interested
+                </label>
+
+            </div>
+
+
+            <!-- QUESTION 9 -->
+            <div class="question-card">
+
+                <div class="question-number">
+                    09
+                </div>
+
+                <h2>
+                    What type of work environment do you prefer?
+                </h2>
+
+                <label>
+                    <input type="radio"
+                           name="work_style"
+                           value="technical"
+                           required>
+                    Technical / Analytical
+                </label>
+
+                <label>
+                    <input type="radio"
+                           name="work_style"
+                           value="creative">
+                    Creative
+                </label>
+
+                <label>
+                    <input type="radio"
+                           name="work_style"
+                           value="people">
+                    Working with people
+                </label>
+
+                <label>
+                    <input type="radio"
+                           name="work_style"
+                           value="leadership">
+                    Leadership / Management
+                </label>
+
+            </div>
+
+
+            <!-- QUESTION 10 -->
+            <div class="question-card">
+
+                <div class="question-number">
+                    10
+                </div>
+
+                <h2>
+                    How do you prefer to work?
+                </h2>
+
+                <label>
+                    <input type="radio"
+                           name="teamwork"
+                           value="independent"
+                           required>
+                    Mostly independently
+                </label>
+
+                <label>
+                    <input type="radio"
+                           name="teamwork"
+                           value="team">
+                    Mostly in a team
+                </label>
+
+                <label>
+                    <input type="radio"
+                           name="teamwork"
+                           value="both">
+                    A mixture of both
+                </label>
+
+                <label>
+                    <input type="radio"
+                           name="teamwork"
+                           value="unknown">
+                    I don't know yet
+                </label>
+
+            </div>
+
+
+            <!-- QUESTION 11 -->
+            <div class="question-card">
+
+                <div class="question-number">
+                    11
+                </div>
+
+                <h2>
+                    Which activity sounds most interesting to you?
+                </h2>
+
+                <label>
+                    <input type="radio"
+                           name="activity"
+                           value="software"
+                           required>
+                    Building software or apps
+                </label>
+
+                <label>
+                    <input type="radio"
+                           name="activity"
+                           value="data">
+                    Analyzing data
+                </label>
+
+                <label>
+                    <input type="radio"
+                           name="activity"
+                           value="design">
+                    Creating designs or websites
+                </label>
+
+                <label>
+                    <input type="radio"
+                           name="activity"
+                           value="security">
+                    Protecting computer systems
+                </label>
+
+                <label>
+                    <input type="radio"
+                           name="activity"
+                           value="business">
+                    Managing products or businesses
+                </label>
+
+                <label>
+                    <input type="radio"
+                           name="activity"
+                           value="ai">
+                    Researching AI or intelligent systems
+                </label>
+
+            </div>
+
+
+            <!-- QUESTION 12 -->
+            <div class="question-card">
+
+                <div class="question-number">
+                    12
+                </div>
+
+                <h2>
+                    What is most important to you in a career?
+                </h2>
+
+                <label>
+                    <input type="radio"
+                           name="career_priority"
+                           value="salary"
+                           required>
+                    High salary
+                </label>
+
+                <label>
+                    <input type="radio"
+                           name="career_priority"
+                           value="creativity">
+                    Creativity
+                </label>
+
+                <label>
+                    <input type="radio"
+                           name="career_priority"
+                           value="stability">
+                    Job stability
+                </label>
+
+                <label>
+                    <input type="radio"
+                           name="career_priority"
+                           value="technology">
+                    Working with technology
+                </label>
+
+                <label>
+                    <input type="radio"
+                           name="career_priority"
+                           value="research">
+                    Research / Innovation
+                </label>
+
+                <label>
+                    <input type="radio"
+                           name="career_priority"
+                           value="helping">
+                    Helping people
+                </label>
+
+            </div>
+
+
+            <!-- SUBMIT -->
+            <div class="assessment-submit">
+
+                <p>
+                    Your answers will be processed by the
+                    CareerAI expert system.
+                </p>
+
+                <button type="submit" class="start-button">
+                    Analyze My Career →
+                </button>
+
+            </div>
+
+        </form>
+
+    </section>
+
+</body>
+</html>

@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Your Career Results | CareerAI</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+
+    <!-- =================================
+         NAVIGATION BAR
+         ================================= -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            Career<span>AI</span>
+        </div>
+
+
+        <div class="nav-links">
+
+            <a href="/">
+                Home
+            </a>
+
+            <a href="/assessment">
+                Retake Assessment
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =================================
+         RESULTS SECTION
+         ================================= -->
+
+    <section class="results">
+
+
+        <!-- =================================
+             PAGE HEADER
+             ================================= -->
+
+        <div class="assessment-header">
+
+            <p class="tagline">
+                AI CAREER ANALYSIS
+            </p>
+
+
+            <h1>
+
+                Your Career
+                <span>Recommendations</span>
+
+            </h1>
+
+
+            <p>
+
+                Our rule-based expert system analyzed your
+                skills, interests, education level, work
+                preferences and career priorities to
+                identify your strongest career paths.
+
+            </p>
+
+        </div>
+
+
+
+        <!-- =================================
+             AI REASONING
+             ================================= -->
+
+        <div class="ai-reasoning">
+
+
+            <div class="ai-reasoning-header">
+
+                <p class="tagline">
+                    AI REASONING
+                </p>
+
+
+                <h2>
+                    How the Expert System Reached Its Results
+                </h2>
+
+
+                <p>
+
+                    Your assessment responses were converted
+                    into facts. The forward-chaining engine
+                    then derived additional profile facts
+                    before evaluating career rules.
+
+                </p>
+
+            </div>
+
+
+
+            <!-- =================================
+                 REASONING FLOW
+                 ================================= -->
+
+            <div class="reasoning-flow">
+
+
+                <!-- STEP 1 -->
+
+                <div class="reasoning-step">
+
+                    <span class="reasoning-number">
+                        01
+                    </span>
+
+
+                    <div>
+
+                        <h3>
+                            User Answers
+                        </h3>
+
+
+                        <p>
+
+                            Your assessment responses were
+                            converted into facts for the
+                            knowledge base.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="reasoning-arrow">
+                    ↓
+                </div>
+
+
+
+                <!-- STEP 2 -->
+
+                <div class="reasoning-step">
+
+                    <span class="reasoning-number">
+                        02
+                    </span>
+
+
+                    <div>
+
+                        <h3>
+                            Forward Chaining
+                        </h3>
+
+
+                        <p>
+
+                            IF–THEN rules were repeatedly
+                            evaluated to derive new facts.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="reasoning-arrow">
+                    ↓
+                </div>
+
+
+
+                <!-- STEP 3 -->
+
+                <div class="reasoning-step">
+
+                    <span class="reasoning-number">
+                        03
+                    </span>
+
+
+                    <div>
+
+                        <h3>
+                            Derived Profile
+                        </h3>
+
+
+                        {% if derived_facts %}
+
+                        <ul class="derived-facts-list">
+
+                            {% for fact in derived_facts | sort %}
+
+                            <li>
+
+                                {{ fact.replace("_", " ") | title }}
+
+                            </li>
+
+                            {% endfor %}
+
+                        </ul>
+
+                        {% else %}
+
+                        <p>
+                            No additional profile facts were derived.
+                        </p>
+
+                        {% endif %}
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="reasoning-arrow">
+                    ↓
+                </div>
+
+
+
+                <!-- STEP 4 -->
+
+                <div class="reasoning-step">
+
+                    <span class="reasoning-number">
+                        04
+                    </span>
+
+
+                    <div>
+
+                        <h3>
+                            Career Rules Evaluated
+                        </h3>
+
+
+                        <p>
+
+                            The derived facts and original
+                            answers were matched against
+                            career-specific rules.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =================================
+                 INFERENCE TRACE
+                 ================================= -->
+
+            {% if reasoning_trace %}
+
+            <div class="reasoning-trace">
+
+
+                <h3>
+                    Inference Trace
+                </h3>
+
+
+                <ul>
+
+                    {% for step in reasoning_trace %}
+
+                    <li>
+                        {{ step }}
+                    </li>
+
+                    {% endfor %}
+
+                </ul>
+
+
+            </div>
+
+            {% endif %}
+
+
+
+            <!-- =================================
+                 SCORE EXPLANATION
+                 ================================= -->
+
+            <div class="score-note">
+
+
+                <strong>
+                    About the Match %
+                </strong>
+
+
+                <p>
+
+                    The match percentage represents how many
+                    weighted career rules were satisfied by
+                    your profile. It is a rule-based
+                    compatibility score, not a probability
+                    of career success.
+
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =================================
+             CAREER RESULTS
+             ================================= -->
+
+        <div class="results-container">
+
+
+            {% for recommendation in recommendations %}
+
+
+            <!-- RESULT CARD -->
+
+            <div class="result-card">
+
+
+                <!-- RANK -->
+
+                <div class="rank">
+
+                    {% if loop.index == 1 %}
+
+                        🥇
+
+                    {% elif loop.index == 2 %}
+
+                        🥈
+
+                    {% else %}
+
+                        🥉
+
+                    {% endif %}
+
+                </div>
+
+
+
+                <!-- CAREER INFORMATION -->
+
+                <div class="career-info">
+
+
+                    <!-- MATCH LABEL -->
+
+                    <p class="match-label">
+
+                        {% if loop.index == 1 %}
+
+                            BEST MATCH
+
+                        {% elif loop.index == 2 %}
+
+                            SECOND BEST MATCH
+
+                        {% else %}
+
+                            THIRD BEST MATCH
+
+                        {% endif %}
+
+                    </p>
+
+
+
+                    <!-- CAREER NAME -->
+
+                    <h2>
+
+                        {{ recommendation.career }}
+
+                    </h2>
+
+
+
+                    <!-- CAREER EXPLANATION -->
+
+                    <p>
+
+                        {{ recommendation.reason }}
+
+                    </p>
+
+
+
+                    <!-- WHY THIS MATCHES -->
+
+                    {% if recommendation.reasons %}
+
+                    <div class="reason-list">
+
+
+                        <h3>
+                            Why this matches you
+                        </h3>
+
+
+                        <ul>
+
+
+                            {% for reason in recommendation.reasons %}
+
+                            <li>
+
+                                {{ reason }}
+
+                            </li>
+
+                            {% endfor %}
+
+
+                        </ul>
+
+
+                    </div>
+
+                    {% endif %}
+
+
+
+                    <!-- MATCH BAR -->
+
+                    <div class="match-bar">
+
+                        <div
+                            class="match-fill"
+                            style="width: {{ recommendation.match }}%;">
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- CAREER ROADMAP -->
+
+                    {% if recommendation.roadmap %}
+
+                    <div class="roadmap">
+
+
+                        <h3>
+                            What to Learn Next
+                        </h3>
+
+
+
+                        <!-- SKILLS -->
+
+                        <h4>
+                            Skills
+                        </h4>
+
+
+                        <ul>
+
+                            {% for skill in recommendation.roadmap.skills %}
+
+                            <li>
+                                {{ skill }}
+                            </li>
+
+                            {% endfor %}
+
+                        </ul>
+
+
+
+                        <!-- TECHNOLOGIES -->
+
+                        <h4>
+                            Technologies
+                        </h4>
+
+
+                        <ul>
+
+                            {% for technology in recommendation.roadmap.technologies %}
+
+                            <li>
+                                {{ technology }}
+                            </li>
+
+                            {% endfor %}
+
+                        </ul>
+
+
+
+                        <!-- PROJECTS -->
+
+                        <h4>
+                            Suggested Projects
+                        </h4>
+
+
+                        <ul>
+
+                            {% for project in recommendation.roadmap.projects %}
+
+                            <li>
+                                {{ project }}
+                            </li>
+
+                            {% endfor %}
+
+                        </ul>
+
+
+                    </div>
+
+                    {% endif %}
+
+
+                </div>
+
+
+
+                <!-- MATCH PERCENTAGE -->
+
+                <div class="match">
+
+                    <strong>
+
+                        {{ recommendation.match }}%
+
+                    </strong>
+
+
+                    <span>
+                        Match
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+            {% endfor %}
+
+        </div>
+
+
+
+        <!-- =================================
+             NO RESULTS
+             ================================= -->
+
+        {% if not recommendations %}
+
+        <div class="no-results">
+
+            <h2>
+                No strong career matches found
+            </h2>
+
+
+            <p>
+
+                Try taking the assessment again
+                with your preferences selected carefully.
+
+            </p>
+
+        </div>
+
+        {% endif %}
+
+
+
+        <!-- =================================
+             RETAKE BUTTON
+             ================================= -->
+
+        <div class="info-button">
+
+            <a href="/assessment"
+               class="start-button">
+
+                Retake Assessment →
+
+            </a>
+
+        </div>
+
+
+    </section>
+
+
+</body>
+
+</html>
