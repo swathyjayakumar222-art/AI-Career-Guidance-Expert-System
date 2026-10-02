@@ -1,8 +1,24 @@
 # CareerAI – AI Career Guidance Expert System
 
-A rule-based AI career guidance system that analyzes a user's skills, interests, education level, work preferences, and career priorities to recommend suitable technology careers.
+A rule-based AI career guidance expert system that analyzes a user's skills, interests, education level, work preferences, and career priorities to recommend suitable technology career paths.
 
-The system uses a knowledge base of IF–THEN rules and a forward-chaining inference engine to derive user profile characteristics and generate personalized career recommendations.
+The system uses a knowledge base of IF–THEN rules and a forward-chaining inference engine to derive additional profile facts before evaluating career-specific rules.
+
+---
+
+## Screenshots
+
+### Home Page
+
+![CareerAI Home Page](screenshots/home.png)
+
+### Career Assessment
+
+![Career Assessment](screenshots/assessment.png)
+
+### AI Career Analysis
+
+![Career Results](screenshots/results.png)
 
 ---
 
@@ -19,26 +35,32 @@ The system uses a knowledge base of IF–THEN rules and a forward-chaining infer
 - Explanation of why a career matches the user
 - AI inference trace showing how conclusions were derived
 - Personalized learning roadmap
-- Suggested technologies and projects
+- Suggested skills and technologies
+- Suggested projects for each career
 - Responsive web interface
-- Career comparison through multiple recommendations
+- Separate career information page
+- Retake assessment functionality
 
 ---
 
 ## Technologies Used
 
 ### Backend
+
 - Python
 - Flask
 
 ### AI / Reasoning
+
 - Rule-Based Reasoning
 - Knowledge Representation
-- IF–THEN Rules
+- IF–THEN Production Rules
 - Forward Chaining
 - Weighted Rule Matching
+- Expert System Architecture
 
 ### Frontend
+
 - HTML5
 - CSS3
 - Jinja2 Templates
@@ -47,7 +69,7 @@ The system uses a knowledge base of IF–THEN rules and a forward-chaining infer
 
 ## Careers Covered
 
-The current knowledge base evaluates several technology career paths:
+The current knowledge base evaluates the following technology career paths:
 
 - Software Engineer
 - AI / ML Engineer
@@ -70,7 +92,7 @@ Career Assessment
   ↓
 User Answers
   ↓
-Facts
+User Facts
   ↓
 Knowledge Base
   ↓
